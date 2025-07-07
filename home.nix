@@ -48,6 +48,7 @@
     fractal
     bat
     aria2
+    alejandra
   ];
 
   # basic configuration of git, please change to your own

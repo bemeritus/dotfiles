@@ -104,16 +104,8 @@
     neovim
     fastfetch
     gnome-tweaks
-    telegram-desktop
     gnome-extension-manager
-    termius
-    vscode
-    popsicle
-    alacritty
     git
-    zed-editor
-    starship
-    fractal
     rustup
     gcc
   ];

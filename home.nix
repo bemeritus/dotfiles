@@ -40,7 +40,14 @@
     nnn
     btop
     errands
-    resources  # replacement of htop/nmon
+    resources 
+    telegram-desktop
+    termius
+    vscode
+    zed-editor
+    fractal
+    bat
+    aria2
   ];
 
   # basic configuration of git, please change to your own

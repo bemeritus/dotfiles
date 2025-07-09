@@ -49,6 +49,7 @@
     bat
     aria2
     alejandra
+    zola
   ];
 
   # basic configuration of git, please change to your own

@@ -108,6 +108,8 @@
     git
     rustup
     gcc
+    gnome-builder
+    e-imzo
   ];
 
   fonts.packages = with pkgs; [

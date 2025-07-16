@@ -50,6 +50,7 @@
     aria2
     alejandra
     zola
+    keepassxc
   ];
 
   # basic configuration of git, please change to your own

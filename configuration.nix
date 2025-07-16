@@ -54,7 +54,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  services.e-imzo.enable = true;
+  
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -109,7 +110,6 @@
     rustup
     gcc
     gnome-builder
-    e-imzo
   ];
 
   fonts.packages = with pkgs; [

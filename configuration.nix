@@ -54,7 +54,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.e-imzo.enable = false;
+  services.e-imzo.enable = true;
   
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

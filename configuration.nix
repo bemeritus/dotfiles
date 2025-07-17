@@ -110,6 +110,7 @@
     rustup
     gcc
     gnome-builder
+    gnomeExtensions.appindicator
   ];
 
   fonts.packages = with pkgs; [

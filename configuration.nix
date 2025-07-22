@@ -29,6 +29,17 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  
+  gtk = {
+    enable = true;
+      theme = {
+        name = "whitesur-theme";
+        package = pkgs.whitesur-gtk-theme;
+      iconTheme = {
+        name = "whitesur-icon-theme";
+        package =  pkgs.whitesur-icon-theme;
+      }
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;

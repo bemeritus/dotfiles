@@ -7,7 +7,18 @@
     ./modules/bash.nix
     ./modules/starship.nix
   ];
-
+  
+  gtk = {
+    enable = true;
+      theme = {
+        name = "whitesur-theme";
+        package = pkgs.whitesur-gtk-theme;
+      };
+      iconTheme = {
+        name = "whitesur-icon-theme";
+        package =  pkgs.whitesur-icon-theme;
+      };
+  };
 
   # TODO please change the username & home directory to your own
   home.username = "bemeritus";

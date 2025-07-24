@@ -110,8 +110,6 @@
     rustup
     gcc
     gnome-builder
-    gnomeExtensions.appindicator
-    flameshot
   ];
 
   fonts.packages = with pkgs; [

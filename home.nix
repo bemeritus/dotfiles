@@ -50,7 +50,7 @@
     zola
     keepassxc
     openssl
-    protonvpn-gui
+    vscode
   ];
 
   # basic configuration of git, please change to your own

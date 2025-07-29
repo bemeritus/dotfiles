@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "flakes for m[A]chines";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
@@ -20,13 +20,13 @@
       bemeritus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./machines/configuration.nix
 
           home-manager.nixosModules.home-manager {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.bemeritus = ./home.nix;
+                users.bemeritus = ./machines/home.nix;
                 backupFileExtension = "backup";
               };
 

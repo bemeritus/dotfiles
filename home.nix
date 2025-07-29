@@ -6,6 +6,7 @@
     ./modules/git.nix
     ./modules/bash.nix
     ./modules/starship.nix
+    ./modules/zsh.nix
   ];
 
   # TODO please change the username & home directory to your own

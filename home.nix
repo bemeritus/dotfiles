@@ -42,7 +42,6 @@
     resources 
     telegram-desktop
     termius
-    vscode
     zed-editor
     fractal
     bat
@@ -51,6 +50,7 @@
     zola
     keepassxc
     openssl
+    protonvpn-gui
   ];
 
   # basic configuration of git, please change to your own

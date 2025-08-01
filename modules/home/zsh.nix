@@ -4,13 +4,10 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      enableBashCompletion = true;
-      
       
       history = {
         extended = true;
       };
-      
       
       shellAliases = {
         ll = "ls -l";
@@ -18,7 +15,3 @@
       };
   };
 }
-
-
-
-

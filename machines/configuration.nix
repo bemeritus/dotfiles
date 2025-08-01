@@ -45,7 +45,7 @@
     ];
     
     defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
-  }
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -56,7 +56,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us, ru";
+    layout = "uz";
     variant = "";
   };
 

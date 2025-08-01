@@ -52,6 +52,7 @@
     keepassxc
     openssl
     vscode
+    
   ];
 
   # basic configuration of git, please change to your own

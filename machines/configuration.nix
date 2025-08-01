@@ -37,7 +37,15 @@
   time.timeZone = "Asia/Tashkent";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8"
+      "uz_UZ.UTF-8/UTF-8"
+    ];
+    
+    defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
+  }
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -48,7 +56,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us, ru";
     variant = "";
   };
 

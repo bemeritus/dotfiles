@@ -20,7 +20,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -37,25 +37,28 @@
   time.timeZone = "Asia/Tashkent";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
+  # i18n.defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
+
+  i18n.defaultLocale = "uz_UZ.UTF-8"; # or change to "en_US.UTF-8/UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  
+  # Configure keymap in X11
+  services.xserver.xkb = { 
+    layout = "us";
+    variant = "";
+  };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "en";
-    variant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.e-imzo.enable = true; 
-  
+  services.e-imzo.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -95,7 +98,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   virtualisation.docker.enable = true;
 

@@ -4,7 +4,6 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      zsh-autoenv.enable = true;
       
       history = {
         extended = true;

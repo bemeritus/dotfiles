@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 
 {
-
   imports = [
     ../modules/home/git.nix
     ../modules/home/bash.nix
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
+    ../modules/home/zed.nix
+    ../modules/home/vscode.nix
   ];
 
   # TODO please change the username & home directory to your own
@@ -43,7 +44,6 @@
     resources 
     telegram-desktop
     termius
-    zed-editor
     fractal
     bat
     aria2
@@ -52,16 +52,14 @@
     keepassxc
     openssl
     vscode
-    
+    prismlauncher
+    poedit
+    yt-dlp
   ];
 
   # basic configuration of git, please change to your own
-  
 
   # starship - an customizable prompt for any shell
-  
-
-  
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

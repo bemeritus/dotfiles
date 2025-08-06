@@ -80,6 +80,8 @@
 
   # NVIDIA driver support
   services.xserver.videoDrivers = ["nvidia"];
+  
+  programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bemeritus = {
@@ -94,7 +96,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

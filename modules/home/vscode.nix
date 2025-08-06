@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
     profiles.default = {
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
-      extensions = (with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-extensions; [
         llvm-vs-code-extensions.vscode-clangd
         editorconfig.editorconfig
         usernamehw.errorlens
@@ -25,7 +24,7 @@
         timonwong.shellcheck
         vscodevim.vim
         wakatime.vscode-wakatime
-      ]);
+      ];
     };
   };
 }

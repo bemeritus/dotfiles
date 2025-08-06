@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../modules/home/git.nix
     ../modules/home/bash.nix
@@ -41,7 +43,7 @@
     nnn
     btop
     errands
-    resources 
+    resources
     telegram-desktop
     termius
     fractal

@@ -9,12 +9,27 @@
     };
   };
 
-  outputs = input@{ self, nixpkgs, home-manager, ... }: 
-  {
-    # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-    # packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+  outputs = input @ {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+  in {
     homeModules.git = ./modules/git.nix;
     homeModules.starship = ./modules/starship.nix;
+
+    devShells.${system}.default = pkgs.mkShell {
+      name = "nix-dev-shell";
+      buildInputs = [pkgs.alejandra];
+      shellHook = ''
+        echo "Welcome to the Nix dev shell with Alejandra formatter!"
+      '';
+    };
 
     nixosConfigurations = {
       bemeritus = nixpkgs.lib.nixosSystem {
@@ -22,21 +37,17 @@
         modules = [
           ./machines/configuration.nix
 
-          home-manager.nixosModules.home-manager {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.bemeritus = ./machines/home.nix;
-                backupFileExtension = "backup";
-              };
-
-              # Optionally, use home-manager.extraSpecialArgs to pass
-              # arguments to home.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.bemeritus = ./machines/home.nix;
+              backupFileExtension = "backup";
+            };
           }
         ];
       };
     };
-    
-    
   };
 }

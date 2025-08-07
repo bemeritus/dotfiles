@@ -24,6 +24,7 @@
         timonwong.shellcheck
         vscodevim.vim
         wakatime.vscode-wakatime
+        bilelmoussaoui.flatpak-vscode
       ];
     };
   };

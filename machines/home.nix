@@ -1,15 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../modules/home/git.nix
     ../modules/home/bash.nix
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
     ../modules/home/zed.nix
-    ../modules/home/vscode.nix
   ];
 
   # TODO please change the username & home directory to your own
@@ -49,14 +44,14 @@
     fractal
     bat
     aria2
-    alejandra
     zola
     keepassxc
     openssl
-    vscode
-    prismlauncher
     poedit
     yt-dlp
+    stacer
+    obsidian
+    vscode
   ];
 
   # basic configuration of git, please change to your own

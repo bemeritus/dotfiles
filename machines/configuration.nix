@@ -59,6 +59,8 @@
   services.printing.enable = true;
   services.e-imzo.enable = true;
 
+  services.flatpak.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -116,6 +118,8 @@
     rustup
     gcc
     gnome-builder
+    flatpak
+    flatpak-builder
   ];
 
   fonts.packages = with pkgs; [

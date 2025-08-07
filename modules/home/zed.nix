@@ -30,7 +30,7 @@
   ];
 
   settings = {
-    auto_update = false;
+    auto_update = true;
 
     disable_ai = true;
 
@@ -39,7 +39,7 @@
       diagnostics = false;
     };
 
-    show_edit_predictions = false;
+    show_edit_predictions = true;
 
     languages = {
       Markdown = {
@@ -111,17 +111,17 @@
     tab_size = 2;
     preferred_line_length = 100;
 
-    autosave = "true";
+    autosave = "on_focus_change";
     format_on_save = "language_server";
     enable_language_server = true;
 
     soft_wrap = "editor_width";
 
-    buffer_font_size = 20;
+    buffer_font_size = 22;
     buffer_font_family = "mononoki";
 
     ui_font_size = 20;
-    ui_font_family = ".SystemUIFont";
+    ui_font_family = "mononoki";
 
     confirm_quit = false;
     use_autoclose = false;

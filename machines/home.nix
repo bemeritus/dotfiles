@@ -52,6 +52,10 @@
     stacer
     obsidian
     vscode
+    floorp
+    vivaldi
+    gnome-builder
+    appstream
   ];
 
   # basic configuration of git, please change to your own

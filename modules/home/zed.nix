@@ -1,8 +1,5 @@
 {pkgs, ...}: let
   extensions = [
-    "assembly"
-    "deno"
-    "env"
     "glsl"
     "haskell"
     "html"
@@ -17,10 +14,8 @@
     "nix"
     "nu"
     "pkl"
-    "ruby"
     "slint"
     "sql"
-    "swift"
     "toml"
     "typst"
     "vercel-theme"

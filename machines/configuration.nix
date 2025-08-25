@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "bemeritus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -57,7 +57,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.e-imzo.enable = true;
+  #services.e-imzo.enable = true;
 
   services.flatpak.enable = true;
 
@@ -83,6 +83,7 @@
   # NVIDIA driver support
   services.xserver.videoDrivers = ["nvidia"];
 
+  programs.steam.enable = true;
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -140,14 +141,6 @@
           ];
         };
       };
-    };
-    virtualbox = {
-      host = {
-        enable = true;
-        enableExtensionPack = true;
-      };
-      guest.enable = true;
-      guest.dragAndDrop = true;
     };
   };
 

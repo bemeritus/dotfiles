@@ -5,6 +5,7 @@
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
     ../modules/home/zed.nix
+    ../modules/home/wezterm.nix
   ];
 
   # TODO please change the username & home directory to your own
@@ -56,6 +57,12 @@
     vivaldi
     gnome-builder
     appstream
+    gnome-boxes
+    planify
+    google-chrome
+    gdm-settings
+    zulip
+    # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 
   # basic configuration of git, please change to your own

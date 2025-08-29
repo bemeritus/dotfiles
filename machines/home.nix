@@ -62,6 +62,8 @@
     google-chrome
     gdm-settings
     zulip
+    discord-ptb
+    kooha
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

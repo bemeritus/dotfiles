@@ -57,7 +57,9 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  #services.e-imzo.enable = true;
+
+  # Enable E-IMZO service.
+  services.e-imzo.enable = true;
 
   services.flatpak.enable = true;
 

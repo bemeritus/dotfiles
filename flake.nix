@@ -10,7 +10,6 @@
   };
 
   outputs = input @ {
-    self,
     nixpkgs,
     home-manager,
     ...
@@ -20,8 +19,8 @@
       inherit system;
     };
   in {
-    homeModules.git = ./modules/git.nix;
-    homeModules.starship = ./modules/starship.nix;
+    homeModules.git = ./modules/home/git.nix;
+    homeModules.starship = ./modules/home/starship.nix;
 
     devShells.${system}.default = pkgs.mkShell {
       name = "nix-dev-shell";

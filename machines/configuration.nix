@@ -23,10 +23,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
+    sync.enable = true;
 
     # Make sure to use the correct Bus ID values for your system!
     intelBusId = "PCI:0:2:0";

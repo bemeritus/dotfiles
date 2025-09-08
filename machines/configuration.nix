@@ -22,13 +22,24 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+
+    # Make sure to use the correct Bus ID values for your system!
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 
   # Enable networking
@@ -83,8 +94,10 @@
   # services.xserver.libinput.enable = true;
 
   # NVIDIA driver support
-  services.xserver.videoDrivers = ["nvidia"];
-
+  services.xserver.videoDrivers = [
+    "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
+    "nvidia"
+  ];
   programs.steam.enable = true;
   programs.zsh.enable = true;
 
@@ -120,9 +133,9 @@
     git
     rustup
     gcc
-    gnome-builder
-    flatpak
-    flatpak-builder
+    # gnome-builder
+    # flatpak
+    # flatpak-builder
   ];
 
   virtualisation = {

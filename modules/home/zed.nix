@@ -2,6 +2,7 @@
   extensions = [
     "glsl"
     "haskell"
+    "git-firefly"
     "html"
     "ini"
     "just"

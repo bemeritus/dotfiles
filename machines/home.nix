@@ -61,6 +61,8 @@
     zulip
     discord-ptb
     spotify
+    github-desktop
+    jetbrains.rust-rover
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

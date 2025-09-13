@@ -157,9 +157,11 @@
   };
 
   fonts.packages = with pkgs; [
-    jetbrains-mono
+    noto-fonts-cjk-sans
+    iosevka-bin
+    julia-mono
     mononoki
-    iosevka
+    jetbrains-mono
   ];
 
   programs.starship.enable = true;

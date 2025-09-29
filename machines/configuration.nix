@@ -22,14 +22,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  hardware.nvidia.prime = {
-    sync.enable = true;
-
-    # Make sure to use the correct Bus ID values for your system!
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -69,7 +61,7 @@
   # Enable E-IMZO service.
   services.e-imzo.enable = true;
 
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -118,7 +110,7 @@
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -128,8 +120,8 @@
     gnome-tweaks
     gnome-extension-manager
     git
-    rustup
-    gcc
+    #rustup
+    #gcc
     # gnome-builder
     # flatpak
     # flatpak-builder

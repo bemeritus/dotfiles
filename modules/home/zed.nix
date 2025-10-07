@@ -99,8 +99,8 @@
 
     theme = {
       mode = "system";
-      light = "Ayu Light";
-      dark = "Ayu Mirage";
+      light = "Gruvbox Dark Soft";
+      dark = "Gruvbox Dark Hard";
     };
     icon_theme = "Material Icon Theme";
 

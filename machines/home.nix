@@ -57,12 +57,12 @@
     vivaldi
     gnome-boxes
     planify
-    google-chrome
     zulip
     discord-ptb
     spotify
     github-desktop
-    jetbrains.rust-rover
+    health
+    fragments
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

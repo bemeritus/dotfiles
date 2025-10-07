@@ -87,6 +87,7 @@
     "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
     "nvidia"
   ];
+
   programs.steam.enable = true;
   programs.zsh.enable = true;
 

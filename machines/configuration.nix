@@ -14,6 +14,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = ["amd_pstate=active"];
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "schedutil";
 
   networking.hostName = "bemeritus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -43,12 +46,23 @@
   i18n.defaultLocale = "en_US.UTF-8"; # or change to "en_US.UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Configure keymap in X11
+    xkb = {
+      extraLayouts.uz-latin = {
+        description = "Oʻzbekcha";
+        languages = ["eng" "uzb"];
+        symbolsFile = "${pkgs.fetchFromGitHub {
+          owner = "bahrom04";
+          repo = "uzbek-latin-keyboard";
+          rev = "main";
+          hash = "sha256-rh6/QaYWpcS6oNUGT2EsVuQTEn5vTlM7uvKUr9AcviE=";
+        }}/uz";
+      };
+      layout = "us,uz-latin";
+    };
   };
 
   # Enable the GNOME Desktop Environment.
@@ -87,6 +101,13 @@
     "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
     "nvidia"
   ];
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+    enableSSHSupport = false;
+  };
 
   programs.steam.enable = true;
   programs.zsh.enable = true;

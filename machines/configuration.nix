@@ -141,7 +141,7 @@
     fastfetch
     gnome-tweaks
     gnome-extension-manager
-    git
+    #git
     #rustup
     #gcc
     # gnome-builder

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    # ../modules/home/git.nix
+    ../modules/home/git.nix
     ../modules/home/bash.nix
     ../modules/home/starship.nix
     ../modules/home/zsh.nix

@@ -14,7 +14,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = ["amd_pstate=active"];
+  boot.kernelParams = ["i915.modeset=1"];
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "schedutil";
 
@@ -27,11 +27,25 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    nvidiaPersistenced = true;
+    dynamicBoost.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      libvdpau
+      vaapiVdpau
+      libva
+      vulkan-loader
+      vulkan-validation-layers
+      nvidia-vaapi-driver
+    ];
   };
 
   # Enable networking

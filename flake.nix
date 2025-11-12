@@ -7,17 +7,21 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xinux-plymouth-theme = {
+      url = "github:bemeritus/xinux-plymouth-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = input @ {
+  outputs = inputs @ {
     nixpkgs,
     home-manager,
+    xinux-plymouth-theme,
     ...
   }: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
+    pkgs = import nixpkgs {inherit system;};
   in {
     homeModules.git = ./modules/home/git.nix;
     homeModules.starship = ./modules/home/starship.nix;
@@ -33,6 +37,7 @@
     nixosConfigurations = {
       bemeritus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           ./machines/configuration.nix
 

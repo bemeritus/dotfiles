@@ -65,7 +65,8 @@
     fragments
     popsicle
     pika-backup
-
+    gitkraken
+    gitg
     # gnome-podcasts
     # amberol
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})

@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -12,9 +13,35 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = ["i915.modeset=1"];
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    plymouth = {
+      enable = true;
+      theme = "mac_style";
+      themePackages = [inputs.xinux-plymouth-theme.packages."${pkgs.system}".default];
+      # themePackages = with inputs.xinux-plymouth-theme.packages.${pkgs.system}.default; [
+      #   # By default we would install all themes
+      #   (xinux-plymouth-theme.override {
+      #     selected_themes = ["mac_style"];
+      #   })
+      # ];
+    };
+
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "i915.modeset=1"
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
+  };
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "schedutil";
 

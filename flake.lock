@@ -39,6 +39,27 @@
         "type": "github"
       }
     },
+    "mac-style-plymouth": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763562365,
+        "narHash": "sha256-48P42/P//91Hy6vDm+/bIOIAn6SeJbRbFf9qqmM+zcU=",
+        "owner": "bemeritus",
+        "repo": "bemeritus-plymouth-theme",
+        "rev": "ee22e6c94bd61478537eb7e9fbad45c109a1349c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bemeritus",
+        "repo": "bemeritus-plymouth-theme",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1756886854,
@@ -58,8 +79,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "xinux-plymouth-theme": "xinux-plymouth-theme"
+        "mac-style-plymouth": "mac-style-plymouth",
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
@@ -74,27 +95,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "xinux-plymouth-theme": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762946347,
-        "narHash": "sha256-RMwDtgBpn/uYb+npJnmXOZfdg218nf5VbZoDYbvhHsY=",
-        "owner": "bemeritus",
-        "repo": "xinux-plymouth-theme",
-        "rev": "3f9596cc7f07e3da7abfb661db4c305304fbd719",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bemeritus",
-        "repo": "xinux-plymouth-theme",
         "type": "github"
       }
     }

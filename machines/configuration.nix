@@ -12,26 +12,42 @@
     ./hardware-configuration.nix
   ];
 
+  nixpkgs = {
+    overlays = [
+      inputs.mac-style-plymouth.overlays.default
+    ];
+  };
+
   # Bootloader.
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = false;
       efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        devices = ["nodev"];
+        #splashImage = ./background.png;
+        useOSProber = true;
+        efiSupport = true;
+        theme = "${
+          (pkgs.fetchFromGitHub {
+            owner = "xinux-org";
+            repo = "bootloader-theme";
+            tag = "v1.0.3";
+            hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
+          })
+        }/xinux";
+      };
     };
 
     plymouth = {
       enable = true;
-      theme = "mac_style";
-      themePackages = [inputs.xinux-plymouth-theme.packages."${pkgs.system}".default];
-      # themePackages = with inputs.xinux-plymouth-theme.packages.${pkgs.system}.default; [
-      #   # By default we would install all themes
-      #   (xinux-plymouth-theme.override {
-      #     selected_themes = ["mac_style"];
-      #   })
-      # ];
+      theme = "mac-style";
+      themePackages = [pkgs.mac-style-plymouth];
     };
 
     consoleLogLevel = 3;
+    initrd.systemd.enable = true;
     initrd.verbose = false;
     kernelParams = [
       "i915.modeset=1"
@@ -66,6 +82,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      mesa
       libvdpau
       vaapiVdpau
       libva

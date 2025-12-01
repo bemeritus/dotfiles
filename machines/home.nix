@@ -6,6 +6,7 @@
     ../modules/home/zsh.nix
     ../modules/home/zed.nix
     ../modules/home/wezterm.nix
+    #../modules/home/vscode.nix
   ];
 
   # TODO please change the username & home directory to your own
@@ -50,10 +51,9 @@
     openssl
     poedit
     yt-dlp
-    stacer
     obsidian
     vscode
-    floorp
+    # floorp-bin
     vivaldi
     gnome-boxes
     planify
@@ -67,6 +67,8 @@
     pika-backup
     gitkraken
     gitg
+    zathura
+    masterpdfeditor
     # gnome-podcasts
     # amberol
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})

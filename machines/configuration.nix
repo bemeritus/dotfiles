@@ -10,11 +10,13 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./keyboards/default.nix
   ];
 
   nixpkgs = {
     overlays = [
       inputs.mac-style-plymouth.overlays.default
+      inputs.nix4vscode.overlays.default
     ];
   };
 
@@ -70,13 +72,13 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    nvidiaPersistenced = true;
-    dynamicBoost.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    nvidiaPersistenced = false;
+    dynamicBoost.enable = false;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 
   hardware.graphics = {
@@ -84,11 +86,10 @@
     extraPackages = with pkgs; [
       mesa
       libvdpau
-      vaapiVdpau
+      libva-vdpau-driver
       libva
       vulkan-loader
       vulkan-validation-layers
-      nvidia-vaapi-driver
     ];
   };
 
@@ -101,31 +102,31 @@
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
-  i18n.defaultLocale = "en_US.UTF-8"; # or change to "en_US.UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
+  i18n.defaultLocale = "uz_UZ.UTF-8"; # or change to "en_US.UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
+  #services.xserver = {
+  #  enable = true;
 
-    # Configure keymap in X11
-    xkb = {
-      extraLayouts.uz-latin = {
-        description = "Oʻzbekcha";
-        languages = ["eng" "uzb"];
-        symbolsFile = "${pkgs.fetchFromGitHub {
-          owner = "bahrom04";
-          repo = "uzbek-latin-keyboard";
-          rev = "main";
-          hash = "sha256-rh6/QaYWpcS6oNUGT2EsVuQTEn5vTlM7uvKUr9AcviE=";
-        }}/uz";
-      };
-      layout = "us,uz-latin";
-    };
-  };
+  # Configure keymap in X11
+  # xkb = {
+  #  extraLayouts.uz-latin = {
+  #   description = "Oʻzbekcha";
+  #  languages = ["eng" "uzb"];
+  # symbolsFile = "${pkgs.fetchFromGitHub {
+  #  owner = "bahrom04";
+  # repo = "uzbek-latin-keyboard";
+  #rev = "main";
+  # hash = "sha256-rh6/QaYWpcS6oNUGT2EsVuQTEn5vTlM7uvKUr9AcviE=";
+  # }}/uz";
+  #};
+  #layout = "us,uz-latin";
+  # };
+  # };
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -207,26 +208,26 @@
     # flatpak-builder
   ];
 
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        runAsRoot = true;
-        swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [
-            (pkgs.OVMF.override {
-              secureBoot = true;
-              tpmSupport = true;
-            })
-            .fd
-          ];
-        };
-      };
-    };
-  };
+  # virtualisation = {
+  #   libvirtd = {
+  #     enable = true;
+  #     qemu = {
+  #       package = pkgs.qemu_kvm;
+  #       runAsRoot = true;
+  #       swtpm.enable = true;
+  #       ovmf = {
+  #         enable = true;
+  #         packages = [
+  #           (pkgs.OVMF.override {
+  #             secureBoot = true;
+  #             tpmSupport = true;
+  #           })
+  #           .fd
+  #         ];
+  #       };
+  #     };
+  #   };
+  # };
 
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans

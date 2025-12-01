@@ -2,8 +2,8 @@
   programs.git = {
     enable = true;
 
-    userName = "bemerituss";
-    userEmail = "bemerituss@gmail.com";
+    settings.user.name = "bemerituss";
+    settings.user.email = "bemerituss@gmail.com";
 
     signing = {
       signByDefault = true;

@@ -1,8 +1,15 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   extensions = [
+    "assembly"
+    "deno"
+    "env"
     "glsl"
     "haskell"
-    "git-firefly"
     "html"
     "ini"
     "just"
@@ -15,18 +22,24 @@
     "nix"
     "nu"
     "pkl"
+    "ruby"
     "slint"
     "sql"
+    "swift"
     "toml"
     "typst"
     "vercel-theme"
     "wgsl"
     "xml"
     "zig"
+    "catppuccin"
+    "one-dark-pro"
+    "vscode-icons"
+    "git-firefly"
   ];
 
   settings = {
-    auto_update = true;
+    auto_update = false;
 
     disable_ai = true;
 
@@ -35,7 +48,12 @@
       diagnostics = false;
     };
 
-    show_edit_predictions = true;
+    show_edit_predictions = false;
+
+    node = {
+      path = lib.getExe pkgs.nodejs;
+      npm_path = lib.getExe' pkgs.nodejs "npm";
+    };
 
     languages = {
       Markdown = {
@@ -50,6 +68,26 @@
           "nixd"
           "!nil"
         ];
+      };
+
+      TypeScript = {
+        language_servers = [
+          "typescript-language-server"
+          "deno"
+          "!vtsls"
+          "!eslint"
+        ];
+        formatter = "language_server";
+      };
+
+      TSX = {
+        language_servers = [
+          "typescript-language-server"
+          "deno"
+          "!eslint"
+          "!vtsls"
+        ];
+        formatter = "language_server";
       };
     };
 
@@ -84,6 +122,12 @@
         };
       };
 
+      deno = {
+        binary = {
+          ignore_system_version = false;
+        };
+      };
+
       solargraph = {
         binary = {
           ignore_system_version = false;
@@ -99,21 +143,26 @@
 
     theme = {
       mode = "system";
-      light = "Gruvbox Dark Soft";
-      dark = "Gruvbox Dark Hard";
+      light = "Vercel Light";
+      dark = "Vercel Dark";
     };
     icon_theme = "Material Icon Theme";
 
     tab_size = 2;
     preferred_line_length = 100;
 
-    autosave = "on_focus_change";
+    autosave = {
+      after_delay = {
+        milliseconds = 1000;
+      };
+    };
+
     format_on_save = "language_server";
     enable_language_server = true;
 
     soft_wrap = "editor_width";
 
-    buffer_font_size = 22;
+    buffer_font_size = 20;
     buffer_font_family = "mononoki";
 
     ui_font_size = 20;
@@ -124,7 +173,7 @@
 
     inlay_hints = {
       enabled = true;
-      # show_background = true;
+      show_background = true;
     };
 
     title_bar = {

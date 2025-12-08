@@ -6,7 +6,6 @@
     ../modules/home/zsh.nix
     ../modules/home/zed.nix
     ../modules/home/wezterm.nix
-    #../modules/home/vscode.nix
   ];
 
   # TODO please change the username & home directory to your own
@@ -53,7 +52,6 @@
     yt-dlp
     obsidian
     vscode
-    # floorp-bin
     vivaldi
     gnome-boxes
     planify
@@ -64,13 +62,11 @@
     health
     fragments
     popsicle
-    pika-backup
-    gitkraken
-    gitg
-    zathura
     masterpdfeditor
-    # gnome-podcasts
-    # amberol
+    gnome-podcasts
+    amberol
+    e-imzo-manager
+    inkscape
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

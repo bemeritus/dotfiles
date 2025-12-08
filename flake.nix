@@ -8,10 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # xinux-plymouth-theme = {
-    #   url = "github:bemeritus/xinux-plymouth-theme";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     mac-style-plymouth = {
       url = "github:bemeritus/bemeritus-plymouth-theme";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,14 +17,13 @@
       url = "github:nix-community/nix4vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # framework-plymouth.url = "github:Costeer/framework-mocha-plymouth-theme";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     mac-style-plymouth,
+    nix4vscode,
     ...
   }: let
     system = "x86_64-linux";
@@ -51,9 +46,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./machines/configuration.nix
-
-          # framework-plymouth.nixosModules.default
-          # mac-style-plymouth.overlays.default
 
           home-manager.nixosModules.home-manager
           {

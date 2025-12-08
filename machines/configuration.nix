@@ -102,7 +102,7 @@
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
-  i18n.defaultLocale = "uz_UZ.UTF-8"; # or change to "en_US.UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
+  i18n.defaultLocale = "en_US.UTF-8"; # or change to "en_US.UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
   # Enable the X11 windowing system.
   #services.xserver = {
@@ -200,6 +200,7 @@
     fastfetch
     gnome-tweaks
     gnome-extension-manager
+    ghostty
     #git
     #rustup
     #gcc

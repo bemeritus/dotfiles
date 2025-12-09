@@ -35,6 +35,7 @@
     "catppuccin"
     "vscode-icons"
     "git-firefly"
+    "vscode-dark-modern"
   ];
 
   settings = {
@@ -142,8 +143,8 @@
 
     theme = {
       mode = "system";
-      light = "Catppuccin Mocha - No Italics";
-      dark = "Catppuccin Mocha - No Italics";
+      light = "VSCode Dark Modern";
+      dark = "VSCode Dark Modern";
     };
     icon_theme = "VSCode Icons for Zed (Dark)";
 
@@ -157,7 +158,7 @@
     soft_wrap = "editor_width";
 
     buffer_font_size = 20;
-    buffer_font_family = "JetBrains Mono";
+    buffer_font_family = "mononoki";
 
     ui_font_size = 20;
     ui_font_family = "mononoki";

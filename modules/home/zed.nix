@@ -1,6 +1,6 @@
 {
-  pkgs,
   lib,
+  pkgs,
   config,
   ...
 }: let
@@ -33,14 +33,13 @@
     "xml"
     "zig"
     "catppuccin"
-    "one-dark-pro"
     "vscode-icons"
     "git-firefly"
   ];
 
   settings = {
     auto_update = false;
-
+    colorize_brackets = true;
     disable_ai = true;
 
     telemetry = {
@@ -143,27 +142,22 @@
 
     theme = {
       mode = "system";
-      light = "Vercel Light";
-      dark = "Vercel Dark";
+      light = "Catppuccin Mocha - No Italics";
+      dark = "Catppuccin Mocha - No Italics";
     };
-    icon_theme = "Material Icon Theme";
+    icon_theme = "VSCode Icons for Zed (Dark)";
 
     tab_size = 2;
     preferred_line_length = 100;
 
-    autosave = {
-      after_delay = {
-        milliseconds = 1000;
-      };
-    };
-
-    format_on_save = "language_server";
+    autosave.after_delay.milliseconds = 500;
+    format_on_save = "on";
     enable_language_server = true;
 
     soft_wrap = "editor_width";
 
     buffer_font_size = 20;
-    buffer_font_family = "mononoki";
+    buffer_font_family = "JetBrains Mono";
 
     ui_font_size = 20;
     ui_font_family = "mononoki";
@@ -173,7 +167,7 @@
 
     inlay_hints = {
       enabled = true;
-      show_background = true;
+      # show_background = true;
     };
 
     title_bar = {
@@ -184,9 +178,9 @@
       button = false;
     };
 
-    chat_panel = {
-      button = "never";
-    };
+    # chat_panel = {
+    #   button = "never";
+    # };
 
     agent = {
       enabled = false;
@@ -199,7 +193,8 @@ in {
       inherit extensions;
       userSettings = settings;
       installRemoteServer = true;
-      extraPackages = with pkgs; [nixd];
+      package = pkgs.zed-editor;
+      extraPackages = config.programs.helix.extraPackages;
     };
   };
 }

@@ -157,11 +157,12 @@
 
     soft_wrap = "editor_width";
 
-    buffer_font_size = 20;
-    buffer_font_family = "mononoki";
+    buffer_font_size = 24;
+    buffer_font_family = "Iosevka Fixed";
+    buffer_font_weight = 500;
 
     ui_font_size = 20;
-    ui_font_family = "mononoki";
+    ui_font_family = "Iosevka Fixed";
 
     confirm_quit = false;
     use_autoclose = false;

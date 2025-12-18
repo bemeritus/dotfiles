@@ -67,6 +67,7 @@
     amberol
     e-imzo-manager
     inkscape
+    libreoffice-fresh
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

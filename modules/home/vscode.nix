@@ -3,7 +3,7 @@
     programs.vscode = {
       enable = true;
       package = pkgs.vscode;
-      mutableExtensionsDir = true;
+      mutableExtensionsDir = false;
       profiles = {
         "test" = {
           # Extensions

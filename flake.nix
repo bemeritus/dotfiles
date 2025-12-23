@@ -12,18 +12,12 @@
       url = "github:bemeritus/bemeritus-plymouth-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix4vscode = {
-      url = "github:nix-community/nix4vscode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     mac-style-plymouth,
-    nix4vscode,
     ...
   }: let
     system = "x86_64-linux";

@@ -16,7 +16,6 @@
   nixpkgs = {
     overlays = [
       inputs.mac-style-plymouth.overlays.default
-      inputs.nix4vscode.overlays.default
     ];
   };
 

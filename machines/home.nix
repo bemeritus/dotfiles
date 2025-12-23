@@ -5,7 +5,7 @@
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
     ../modules/home/zed.nix
-    ../modules/home/wezterm.nix
+    ../modules/home/vscode.nix
   ];
 
   # TODO please change the username & home directory to your own

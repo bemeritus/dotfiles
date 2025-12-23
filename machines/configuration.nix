@@ -134,7 +134,7 @@
   # Enable E-IMZO service.
   services.e-imzo.enable = true;
 
-  # services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

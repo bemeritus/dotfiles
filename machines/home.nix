@@ -68,6 +68,7 @@
     e-imzo-manager
     inkscape
     libreoffice-fresh
+    element-desktop
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

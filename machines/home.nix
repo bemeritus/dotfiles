@@ -69,6 +69,7 @@
     inkscape
     libreoffice-fresh
     element-desktop
+    cartero
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

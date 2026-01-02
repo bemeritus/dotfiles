@@ -143,8 +143,8 @@
 
     theme = {
       mode = "system";
-      light = "VSCode Dark Modern";
-      dark = "VSCode Dark Modern";
+      light = "One Dark Pro";
+      dark = "One Dark Pro";
     };
     icon_theme = "VSCode Icons for Zed (Dark)";
 
@@ -158,11 +158,11 @@
     soft_wrap = "editor_width";
 
     buffer_font_size = 24;
-    buffer_font_family = "Iosevka Fixed";
+    buffer_font_family = "mononoki";
     buffer_font_weight = 500;
 
     ui_font_size = 20;
-    ui_font_family = "Iosevka Fixed";
+    ui_font_family = "mononoki";
 
     confirm_quit = false;
     use_autoclose = false;

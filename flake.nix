@@ -15,6 +15,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     home-manager,
     mac-style-plymouth,
@@ -26,17 +27,11 @@
     homeModules.git = ./modules/home/git.nix;
     homeModules.starship = ./modules/home/starship.nix;
 
-    devShells.${system}.default = pkgs.mkShell {
-      name = "nix-dev-shell";
-      buildInputs = [pkgs.alejandra];
-      shellHook = ''
-        echo "Welcome to the Nix dev shell with Alejandra formatter!"
-      '';
-    };
+    devShells.${system}.default = import ./shell.nix {inherit pkgs inputs;};
 
     nixosConfigurations = {
       bemeritus = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {inherit inputs;};
         modules = [
           ./machines/configuration.nix

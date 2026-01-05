@@ -48,7 +48,7 @@
     zola
     keepassxc
     openssl
-    poedit
+    # poedit
     yt-dlp
     obsidian
     vscode

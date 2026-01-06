@@ -70,7 +70,7 @@
         "files.autoSave" = "afterDelay";
         "[python]"."editor.tabSize" = 4;
         "editor.fontSize" = 20;
-        "editor.fontFamily" = "Iosevka Extended";
+        "editor.fontFamily" = "mononoki";
         "workbench.colorTheme" = "Gruvbox Dark Hard";
         "terminal.integrated.fontSize" = 18;
         "editor.defaultFormatter" = "ms-python.black-formatter";

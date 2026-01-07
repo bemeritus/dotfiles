@@ -70,6 +70,7 @@
     libreoffice-fresh
     element-desktop
     cartero
+    flameshot
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

@@ -62,7 +62,7 @@
     health
     fragments
     popsicle
-    masterpdfeditor
+    # masterpdfeditor
     gnome-podcasts
     amberol
     e-imzo-manager
@@ -70,7 +70,8 @@
     libreoffice-fresh
     element-desktop
     cartero
-    flameshot
+    gradia
+    gtranslator
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

@@ -93,53 +93,39 @@
   };
 
   # Enable Samba
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    openFirewall = true;
-    settings = {
-      global = {
-        "workgroup" = "WORKGROUP";
-        "server string" = "smbnix";
-        "netbios name" = "smbnix";
-        "security" = "user";
-        "use sendfile" = "yes";
-        #"max protocol" = "smb2";
-        # note: localhost is the ipv6 localhost ::1
-        "hosts allow" = "192.168.0. 127.0.0.1 localhost";
-        "hosts deny" = "0.0.0.0/0";
-        "guest account" = "nobody";
-        "map to guest" = "bad user";
-      };
+  services = {
+    samba = {
+      enable = true;
+      package = pkgs.samba4Full;
+      openFirewall = true;
 
-      "public" = {
-        "path" = "/mnt/Shares/Public";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "username";
-        "force group" = "groupname";
-      };
+      settings = {
+        global = {
+          "server smb encrypt" = "required";
+          "server min protocol" = "SMB3_00";
+          "workgroup" = "WORKGROUP";
+          "security" = "user";
+        };
 
-      "private" = {
-        "path" = "/mnt/Shares/Private";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "username";
-        "force group" = "groupname";
+        testshare = {
+          "path" = "/home/bemeritus/Public";
+          "writable" = "yes";
+          "comment" = "Hello World!";
+          "browseable" = "yes";
+        };
       };
     };
+    samba-wsdd = {
+      enable = true;
+      openFirewall = true;
+    };
+    avahi = {
+      enable = true;
+      publish.enable = true;
+      publish.userServices = true;
+      openFirewall = true;
+    };
   };
-
-services.samba-wsdd = {
-  enable = true;
-  openFirewall = true;
-};
 
   # Enable networking
   networking.networkmanager.enable = true;

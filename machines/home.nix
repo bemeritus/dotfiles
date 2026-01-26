@@ -72,6 +72,7 @@
     cartero
     gradia
     gtranslator
+    blanket
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

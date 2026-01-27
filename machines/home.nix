@@ -73,6 +73,7 @@
     gradia
     gtranslator
     blanket
+    amnezia-vpn
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

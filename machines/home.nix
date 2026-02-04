@@ -73,7 +73,7 @@
     gradia
     gtranslator
     blanket
-    amnezia-vpn
+    fluffychat
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

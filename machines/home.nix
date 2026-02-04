@@ -50,7 +50,7 @@
     openssl
     # poedit
     yt-dlp
-    obsidian
+    # obsidian
     vscode
     vivaldi
     gnome-boxes

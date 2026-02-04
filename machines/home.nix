@@ -75,6 +75,7 @@
     blanket
     fluffychat
     icon-library
+    gparted
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

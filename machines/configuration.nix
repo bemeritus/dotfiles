@@ -57,6 +57,7 @@
       "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
+      "ipv6.disable=1"
     ];
   };
   powerManagement.enable = true;
@@ -65,7 +66,7 @@
   networking.hostName = "bemeritus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   #
-  nix.settings.substituters = [ "https://cache.nixos.org?priority=10" ];
+  nix.settings.substituters = ["https://cache.nixos.org?priority=10"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

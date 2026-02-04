@@ -74,6 +74,7 @@
     gtranslator
     blanket
     fluffychat
+    icon-library
     # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

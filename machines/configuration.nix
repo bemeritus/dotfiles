@@ -31,20 +31,20 @@
         useOSProber = true;
         efiSupport = true;
         theme = "${
-          (pkgs.fetchFromGitHub {
-            owner = "xinux-org";
-            repo = "bootloader-theme";
-            tag = "v1.0.3";
-            hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
-          })
+         (pkgs.fetchFromGitHub {
+           owner = "xinux-org";
+           repo = "bootloader-theme";
+           tag = "v1.0.3";
+           hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
+         })
         }/xinux";
       };
     };
 
     plymouth = {
-      enable = true;
-      theme = "mac-style";
-      themePackages = [pkgs.mac-style-plymouth];
+     enable = true;
+     theme = "mac-style";
+     themePackages = [pkgs.mac-style-plymouth];
     };
 
     consoleLogLevel = 3;
@@ -57,7 +57,7 @@
       "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
-      "ipv6.disable=1"
+      # "ipv6.disable=1"
     ];
   };
   powerManagement.enable = true;
@@ -66,22 +66,11 @@
   networking.hostName = "bemeritus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   #
-  nix.settings.substituters = ["https://cache.nixos.org?priority=10"];
+  # nix.settings.substituters = ["https://cache.nixos.org?priority=10"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    nvidiaPersistenced = false;
-    dynamicBoost.enable = false;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
-  };
 
   hardware.graphics = {
     enable = true;
@@ -195,7 +184,7 @@
   # NVIDIA driver support
   services.xserver.videoDrivers = [
     "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
-    "nvidia"
+    # "nvidia"
   ];
 
   services.pcscd.enable = true;

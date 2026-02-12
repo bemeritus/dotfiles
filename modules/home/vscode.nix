@@ -23,10 +23,7 @@
         tamasfe.even-better-toml
         kubukoz.nickel-syntax
         jnoortheen.nix-ide
-        # mesonbuild.mesonbuild
         kamadorueda.alejandra
-        # haskell.haskell
-        # justusadam.language-haskell
         alefragnani.bookmarks
         davidanson.vscode-markdownlint
         editorconfig.editorconfig
@@ -41,27 +38,17 @@
         bierner.markdown-mermaid
         pkief.material-icon-theme
         pkief.material-product-icons
-        # jnoortheen.nix-ide
         christian-kohler.path-intellisense
         esbenp.prettier-vscode
-        # rust-lang.rust-analyzer
-        # scalameta.metals
-        #scala-lang.scala
         timonwong.shellcheck
-        # vscodevim.vim
         donjayamanne.githistory
         github.vscode-github-actions
         jebbs.plantuml
         mechatroner.rainbow-csv
         redhat.vscode-yaml
-        # pkief.material-icon-theme
-        streetsidesoftware.code-spell-checker
         zhuangtongfa.material-theme
-        # ziglang.vscode-zig
-        # banacorn.agda-mode
         gruntfuggly.todo-tree
         oderwat.indent-rainbow
-        # ms-vscode.cpptools-extension-pack
         mads-hartmann.bash-ide-vscode
         llvm-vs-code-extensions.vscode-clangd
       ];

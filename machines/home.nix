@@ -48,9 +48,9 @@
     zola
     keepassxc
     openssl
-    # poedit
+    (poedit.override {boost = boost188;})
     yt-dlp
-    # obsidian
+    obsidian
     vscode
     vivaldi
     gnome-boxes

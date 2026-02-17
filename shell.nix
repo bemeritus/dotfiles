@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{pkgs, ...}:
 pkgs.stdenv.mkDerivation {
   name = "nix";
 

@@ -6,8 +6,8 @@
     settings.user.email = "bemerituss@gmail.com";
 
     signing = {
-     signByDefault = false;
-     key = "41CB3CADA2D8627FEA8EB3103395DF64A98EC60A";
+      signByDefault = false;
+      key = "41CB3CADA2D8627FEA8EB3103395DF64A98EC60A";
     };
 
     # extraConfig = {

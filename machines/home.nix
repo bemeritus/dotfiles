@@ -67,6 +67,7 @@
     amberol
     e-imzo-manager
     inkscape
+    gimp
     libreoffice-fresh
     element-desktop
     cartero

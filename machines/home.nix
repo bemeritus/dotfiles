@@ -4,7 +4,7 @@
     ../modules/home/bash.nix
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
-    ../modules/home/zed.nix
+    # ../modules/home/zed.nix
     ../modules/home/vscode.nix
   ];
 
@@ -50,7 +50,7 @@
     openssl
     # poedit
     yt-dlp
-    # obsidian
+    obsidian
     vscode
     vivaldi
     gnome-boxes
@@ -62,7 +62,7 @@
     health
     fragments
     popsicle
-    # masterpdfeditor
+    masterpdfeditor
     gnome-podcasts
     amberol
     e-imzo-manager
@@ -74,7 +74,7 @@
     gtranslator
     blanket
     icon-library
-    # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
+    # # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 
   # basic configuration of git, please change to your own

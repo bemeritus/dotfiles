@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./keyboards/default.nix
+    inputs.nix-data.nixosModules.nix-data
   ];
 
   nixpkgs = {
@@ -85,39 +86,39 @@
   };
 
   # Enable Samba
-  services = {
-    samba = {
-      enable = true;
-      package = pkgs.samba4Full;
-      openFirewall = true;
+  # services = {
+  #   samba = {
+  #     enable = true;
+  #     package = pkgs.samba4Full;
+  #     openFirewall = true;
 
-      settings = {
-        global = {
-          "server smb encrypt" = "required";
-          "server min protocol" = "SMB3_00";
-          "workgroup" = "WORKGROUP";
-          "security" = "user";
-        };
+  #     settings = {
+  #       global = {
+  #         "server smb encrypt" = "required";
+  #         "server min protocol" = "SMB3_00";
+  #         "workgroup" = "WORKGROUP";
+  #         "security" = "user";
+  #       };
 
-        testshare = {
-          "path" = "/home/bemeritus/Public";
-          "writable" = "yes";
-          "comment" = "Hello World!";
-          "browseable" = "yes";
-        };
-      };
-    };
-    samba-wsdd = {
-      enable = true;
-      openFirewall = true;
-    };
-    avahi = {
-      enable = true;
-      publish.enable = true;
-      publish.userServices = true;
-      openFirewall = true;
-    };
-  };
+  #       testshare = {
+  #         "path" = "/home/bemeritus/Public";
+  #         "writable" = "yes";
+  #         "comment" = "Hello World!";
+  #         "browseable" = "yes";
+  #       };
+  #     };
+  #   };
+  #   samba-wsdd = {
+  #     enable = true;
+  #     openFirewall = true;
+  #   };
+  #   avahi = {
+  #     enable = true;
+  #     publish.enable = true;
+  #     publish.userServices = true;
+  #     openFirewall = true;
+  #   };
+  # };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -161,6 +162,13 @@
   services.e-imzo.enable = true;
 
   services.flatpak.enable = true;
+
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "/home/bemeritus/dotfiles/machines/configuration.nix";
+    flake = "/home/bemeritus/dotfiles/flake.nix";
+    flakearg = "bemeritus"; # your hostname
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

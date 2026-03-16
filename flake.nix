@@ -13,6 +13,11 @@
       url = "github:bemeritus/bemeritus-plymouth-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-data = {
+      url = "github:xinux-org/nix-data";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -20,6 +25,7 @@
     nixpkgs,
     home-manager,
     mac-style-plymouth,
+    nix-data,
     ...
   }: let
     system = "x86_64-linux";

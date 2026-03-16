@@ -55,7 +55,7 @@
     vivaldi
     gnome-boxes
     planify
-    zulip
+    # zulip
     discord-ptb
     spotify
     github-desktop

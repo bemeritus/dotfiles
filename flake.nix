@@ -36,6 +36,8 @@
 
     devShells.${system}.default = import ./shell.nix {inherit pkgs inputs;};
 
+    systems.modules.nixos = with inputs; [];
+
     nixosConfigurations = {
       bemeritus = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -53,6 +55,8 @@
             };
           }
         ];
+
+
       };
     };
   };

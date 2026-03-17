@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./keyboards/default.nix
+    ./modules.nix
     inputs.nix-data.nixosModules.nix-data
   ];
 

@@ -1,11 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -28,7 +27,7 @@
       efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
-        devices = ["nodev"];
+        devices = [ "nodev" ];
         #splashImage = ./background.png;
         useOSProber = true;
         efiSupport = true;
@@ -46,7 +45,7 @@
     plymouth = {
       enable = true;
       theme = "mac-style";
-      themePackages = [pkgs.mac-style-plymouth];
+      themePackages = [ pkgs.mac-style-plymouth ];
     };
 
     consoleLogLevel = 3;
@@ -186,7 +185,7 @@
   users.users.bemeritus = {
     isNormalUser = true;
     description = "BeMeritus";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       thunderbird
@@ -200,7 +199,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #virtualisation.docker.enable = true;
 

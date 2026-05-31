@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.xserver = {
     enable = true;
 
@@ -6,7 +6,7 @@
     xkb = {
       extraLayouts.uz = {
         description = "Uzbek (Oʻzbekiston)";
-        languages = ["eng" "uzb"];
+        languages = [ "eng" "uzb" ];
         # symbolsFile = "${pkgs.fetchFromGitHub {
         #   owner = "bahrom04";
         #   repo = "uzbek-latin-keyboard";

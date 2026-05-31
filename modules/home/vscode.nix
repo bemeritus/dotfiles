@@ -1,5 +1,5 @@
 # reference: https://maksar.github.io/posts/code/2021-09-19-vscode/
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
@@ -130,7 +130,7 @@
         "[python]" = {
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.defaultColorDecorators" = "never";
-          "gitlens.codeLens.symbolScopes" = ["!Module"];
+          "gitlens.codeLens.symbolScopes" = [ "!Module" ];
           "editor.formatOnType" = true;
           "editor.wordBasedSuggestions" = "off";
         };

@@ -20,42 +20,44 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    mac-style-plymouth,
-    nix-data,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
-  in {
-    homeModules.git = ./modules/home/git.nix;
-    homeModules.starship = ./modules/home/starship.nix;
+  outputs =
+    inputs @ { self
+    , nixpkgs
+    , home-manager
+    , mac-style-plymouth
+    , nix-data
+    , ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
+    {
+      homeModules.git = ./modules/home/git.nix;
+      homeModules.starship = ./modules/home/starship.nix;
 
-    devShells.${system}.default = import ./shell.nix {inherit pkgs inputs;};
+      devShells.${system}.default = import ./shell.nix { inherit pkgs inputs; };
 
-    systems.modules.nixos = with inputs; [];
+      systems.modules.nixos = with inputs; [ ];
 
-    nixosConfigurations = {
-      bemeritus = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./machines/configuration.nix
+      nixosConfigurations = {
+        bemeritus = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./machines/configuration.nix
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.bemeritus = ./machines/home.nix;
-              backupFileExtension = "backup";
-            };
-          }
-        ];
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.bemeritus = ./machines/home.nix;
+                backupFileExtension = "backup";
+              };
+            }
+          ];
+        };
       };
     };
-  };
 }

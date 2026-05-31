@@ -1,9 +1,9 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{ lib
+, pkgs
+, config
+, ...
+}:
+let
   extensions = [
     "assembly"
     "deno"
@@ -188,7 +188,8 @@
       enabled = false;
     };
   };
-in {
+in
+{
   config = {
     programs.zed-editor = {
       enable = true;

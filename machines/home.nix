@@ -4,7 +4,7 @@
     ../modules/home/bash.nix
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
-    # ../modules/home/zed.nix
+    ../modules/home/zed.nix
     ../modules/home/vscode.nix
   ];
 
@@ -50,7 +50,7 @@
     openssl
     # poedit
     yt-dlp
-    obsidian
+    # obsidian
     vscode
     vivaldi
     gnome-boxes
@@ -89,5 +89,5 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

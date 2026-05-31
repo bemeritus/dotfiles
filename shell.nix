@@ -6,7 +6,7 @@ pkgs.stdenv.mkDerivation {
     nixd
     statix
     deadnix
-    alejandra
+    nixpkgs-fmt
   ];
 
   # Nix related configurations

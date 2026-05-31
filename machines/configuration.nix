@@ -11,6 +11,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./keyboards/default.nix
+    ./modules.nix
+    inputs.nix-data.nixosModules.nix-data
   ];
 
   nixpkgs = {
@@ -137,6 +139,13 @@
   services.e-imzo.enable = true;
 
   services.flatpak.enable = true;
+
+  programs.nix-data = {
+    enable = true;
+    systemconfig = "/home/bemeritus/dotfiles/machines/configuration.nix";
+    flake = "/home/bemeritus/dotfiles/flake.nix";
+    flakearg = "bemeritus"; # your hostname
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

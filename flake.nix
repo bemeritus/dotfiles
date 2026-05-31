@@ -13,6 +13,11 @@
       url = "github:bemeritus/bemeritus-plymouth-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-data = {
+      url = "git+https://git.oss.uzinfocom.uz/xinux/nix-data?ref=main&shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -20,6 +25,7 @@
     nixpkgs,
     home-manager,
     mac-style-plymouth,
+    nix-data,
     ...
   }: let
     system = "x86_64-linux";
@@ -29,6 +35,8 @@
     homeModules.starship = ./modules/home/starship.nix;
 
     devShells.${system}.default = import ./shell.nix {inherit pkgs inputs;};
+
+    systems.modules.nixos = with inputs; [];
 
     nixosConfigurations = {
       bemeritus = nixpkgs.lib.nixosSystem {

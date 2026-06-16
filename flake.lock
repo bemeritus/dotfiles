@@ -159,11 +159,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780099287,
-        "narHash": "sha256-efIPwVGtIWIjWcznhaop6XN6HxnOL8800hF6CBNvlqQ=",
+        "lastModified": 1781557312,
+        "narHash": "sha256-QOIRYSUFSq7L5mY3dZymaVhcnne3tPgoR9riB0WocjA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7d8127d308c3fb9664f7e643eec944be74ebb37d",
+        "rev": "c03e4752899e55705dfa63979abd885c582a5c48",
         "type": "github"
       },
       "original": {
@@ -201,10 +201,10 @@
         "xinux-lib": "xinux-lib"
       },
       "locked": {
-        "lastModified": 1779879174,
-        "narHash": "sha256-yeDGXH2Bks9Afa8P1lQvtn+i09Nu4+LyzlauiVPAe2g=",
+        "lastModified": 1780518212,
+        "narHash": "sha256-wcViy1+c5gbu7Yd66UU5GBPGGqhzBYVZwPIArrS47IE=",
         "ref": "main",
-        "rev": "3913084eda85f53075166c530054820b2caf7724",
+        "rev": "c36de9b47a8d32e89d8192deda5bf8df7d0f42df",
         "shallow": true,
         "type": "git",
         "url": "https://git.oss.uzinfocom.uz/xinux/nix-data"
@@ -218,11 +218,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1779560665,
-        "narHash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o=",
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
         "type": "github"
       },
       "original": {

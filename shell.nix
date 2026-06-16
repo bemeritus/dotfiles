@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 pkgs.stdenv.mkDerivation {
   name = "nix";
 
@@ -6,7 +6,7 @@ pkgs.stdenv.mkDerivation {
     nixd
     statix
     deadnix
-    nixpkgs-fmt
+    alejandra
   ];
 
   # Nix related configurations

@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ../modules/home/git.nix
     ../modules/home/bash.nix
     ../modules/home/starship.nix
     ../modules/home/zsh.nix
-    ../modules/home/zed.nix
+    # ../modules/home/zed.nix
     ../modules/home/vscode.nix
   ];
 
@@ -55,7 +55,7 @@
     vivaldi
     gnome-boxes
     planify
-    zulip
+    # zulip
     discord-ptb
     spotify
     github-desktop
@@ -74,6 +74,7 @@
     gtranslator
     blanket
     icon-library
+    zed-editor
     # # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

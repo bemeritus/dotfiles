@@ -1,4 +1,31 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: let
+  mkNixPak = inputs.nixpak.lib.nixpak {
+    inherit (pkgs) lib;
+    inherit pkgs;
+  };
+
+  sandboxed-discord = mkNixPak {
+    config = {sloth, ...}: {
+      # The application to isolate
+      app.package = pkgs.discord-ptb;
+
+      # Configure bubblewrap permissions
+      bubblewrap = {
+        # Allow network access (Discord needs the internet)
+        network = true;
+
+        bind.rw = [
+          (sloth.concat [sloth.homeDir "/Downloads"])
+          (sloth.concat [sloth.homeDir "/.config/discordptb"])
+        ];
+      };
+    };
+  };
+in {
   imports = [
     ../modules/home/git.nix
     ../modules/home/bash.nix
@@ -56,7 +83,7 @@
     gnome-boxes
     planify
     # zulip
-    discord-ptb
+    sandboxed-discord.config.env
     spotify
     github-desktop
     health
@@ -75,6 +102,7 @@
     blanket
     icon-library
     zed-editor
+    redis
     # # (callPackage /home/bemeritus/Projects/e-imzo/default.nix {})
   ];
 

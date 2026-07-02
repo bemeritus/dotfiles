@@ -57,7 +57,7 @@
         "files.autoSave" = "afterDelay";
         "[python]"."editor.tabSize" = 4;
         "editor.fontSize" = 20;
-        "editor.fontFamily" = "mononoki";
+        "editor.fontFamily" = "Source Code Pro";
         "workbench.colorTheme" = "Gruvbox Dark Hard";
         "terminal.integrated.fontSize" = 18;
         "editor.defaultFormatter" = "ms-python.black-formatter";

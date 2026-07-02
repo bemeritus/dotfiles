@@ -247,6 +247,8 @@
     julia-mono
     mononoki
     jetbrains-mono
+    source-code-pro
+    fira-code
   ];
 
   programs.starship.enable = true;

@@ -18,12 +18,18 @@
       url = "git+https://git.oss.uzinfocom.uz/xinux/nix-data?ref=main&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    nixpak,
     mac-style-plymouth,
     nix-data,
     ...
@@ -50,6 +56,8 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+
+              extraSpecialArgs = {inherit inputs;};
               users.bemeritus = ./machines/home.nix;
               backupFileExtension = "backup";
             };

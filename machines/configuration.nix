@@ -132,7 +132,7 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Enable CUPS to print documents.
+  # Enable CUPS to print documents.services.e-imzo.enable = true;
   services.printing.enable = true;
 
   # Enable E-IMZO service.
@@ -212,6 +212,7 @@
     gnome-tweaks
     gnome-extension-manager
     ghostty
+    inputs.xinux-settings.packages.x86_64-linux.xinux-settings
     #git
     #rustup
     #gcc

@@ -23,12 +23,18 @@
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xinux-settings = {
+      url = "git+https://git.oss.uzinfocom.uz/xinux/settings?ref=app-sandbox&shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    xinux-settings,
     nixpak,
     mac-style-plymouth,
     nix-data,

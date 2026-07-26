@@ -214,6 +214,14 @@
     ghostty
     inputs.xinux-settings.packages.x86_64-linux.xinux-settings
     inputs.my-nautilus.packages.x86_64-linux.default
+    nautilus-python
+    glib
+    (python3.withPackages (ps:
+      with ps; [
+        pycairo
+        pygobject3
+      ]))
+    libadwaita
     #git
     #rustup
     #gcc
@@ -221,6 +229,9 @@
     # flatpak
     # flatpak-builder
   ];
+
+  environment.pathsToLink = ["/share/nautilus-python/extensions"];
+  environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${config.system.path}/lib/nautilus/extensions-4";
 
   # virtualisation = {
   #   libvirtd = {

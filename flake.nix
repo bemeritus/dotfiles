@@ -2,10 +2,10 @@
   description = "flakes for m[A]chines";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,6 +26,11 @@
 
     xinux-settings = {
       url = "git+https://git.oss.uzinfocom.uz/xinux/settings?ref=app-sandbox&shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    my-nautilus = {
+      url = "github:yannmasoch/nautilus-my-computer?dir=packaging/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

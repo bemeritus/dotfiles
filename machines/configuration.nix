@@ -213,6 +213,7 @@
     gnome-extension-manager
     ghostty
     inputs.xinux-settings.packages.x86_64-linux.xinux-settings
+    inputs.my-nautilus.packages.x86_64-linux.default
     #git
     #rustup
     #gcc

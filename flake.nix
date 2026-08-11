@@ -33,6 +33,12 @@
       url = "github:yannmasoch/nautilus-my-computer?dir=packaging/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    claude-desktop = {
+      url = "github:k3d3/claude-desktop-linux-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = inputs @ {

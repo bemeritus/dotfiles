@@ -214,6 +214,12 @@
     ghostty
     inputs.xinux-settings.packages.x86_64-linux.xinux-settings
     inputs.my-nautilus.packages.x86_64-linux.default
+
+    # nixpkgs 26.05 removed `nodePackages`; the claude-desktop flake still
+    # expects `nodePackages.asar`, so shim it to the now top-level `asar`.
+    (inputs.claude-desktop.packages.x86_64-linux.claude-desktop.override {
+      nodePackages = {inherit (pkgs) asar;};
+    })
     nautilus-python
     glib
     (python3.withPackages (ps:
@@ -222,6 +228,7 @@
         pygobject3
       ]))
     libadwaita
+    claude-code
     #git
     #rustup
     #gcc

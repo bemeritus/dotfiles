@@ -89,7 +89,7 @@ in {
     health
     fragments
     popsicle
-    masterpdfeditor
+    # masterpdfeditor
     gnome-podcasts
     amberol
     e-imzo-manager

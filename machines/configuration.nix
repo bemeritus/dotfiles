@@ -212,7 +212,7 @@
     gnome-tweaks
     gnome-extension-manager
     ghostty
-    inputs.xinux-settings.packages.x86_64-linux.xinux-settings
+    # inputs.xinux-settings.packages.x86_64-linux.xinux-settings
     inputs.my-nautilus.packages.x86_64-linux.default
 
     # nixpkgs 26.05 removed `nodePackages`; the claude-desktop flake still
@@ -242,6 +242,8 @@
 
   environment.pathsToLink = ["/share/nautilus-python/extensions"];
   environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${config.system.path}/lib/nautilus/extensions-4";
+
+  virtualisation.docker.enable = true;
 
   # virtualisation = {
   #   libvirtd = {

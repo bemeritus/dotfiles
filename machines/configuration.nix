@@ -229,6 +229,9 @@
       ]))
     libadwaita
     claude-code
+    docker
+    docker-client
+    docker-compose
     #git
     #rustup
     #gcc

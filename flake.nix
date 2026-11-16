@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,40 +19,41 @@
 
   outputs = inputs @ {
     self,
+    flake-parts,
     nixpkgs,
     home-manager,
     ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
-  in {
-    homeModules.git = ./modules/home/git.nix;
-    homeModules.starship = ./modules/home/starship.nix;
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-    devShells.${system}.default = import ./shell.nix {inherit pkgs inputs;};
+      flake = {
+        homeModules.git = ./modules/home/git.nix;
+        homeModules.starship = ./modules/home/starship.nix;
 
-    systems.modules.nixos = with inputs; [];
+        nixosConfigurations.bemeritus = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./machines/configuration.nix
 
-    nixosConfigurations = {
-      bemeritus = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./machines/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
+                extraSpecialArgs = {inherit inputs;};
+                users.bemeritus = ./machines/home.nix;
+                backupFileExtension = "backup";
+              };
+            }
+          ];
+        };
+      };
 
-              extraSpecialArgs = {inherit inputs;};
-              users.bemeritus = ./machines/home.nix;
-              backupFileExtension = "backup";
-            };
-          }
-        ];
+      perSystem = {pkgs, ...}: {
+        devShells.default = import ./shell.nix {inherit pkgs inputs;};
       };
     };
-  };
 }

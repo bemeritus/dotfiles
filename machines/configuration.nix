@@ -28,18 +28,10 @@
       };
     };
 
-    plymouth.enable = true;
-
-    consoleLogLevel = 3;
     initrd.systemd.enable = true;
-    initrd.verbose = false;
     kernelParams = [
       "i915.modeset=1"
-      "quiet"
-      "splash"
       "boot.shell_on_fail"
-      "udev.log_priority=3"
-      "rd.systemd.show_status=auto"
       # "ipv6.disable=1"
     ];
   };
@@ -54,17 +46,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    nvidiaPersistenced = false;
-    dynamicBoost.enable = false;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
-  };
 
   hardware.graphics = {
     enable = true;
@@ -140,11 +121,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # NVIDIA driver support
-  services.xserver.videoDrivers = [
-    "modesetting" # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
-    "nvidia"
-  ];
+  services.xserver.videoDrivers = ["modesetting"];
 
   services.pcscd.enable = true;
   # programs.gnupg.agent = {

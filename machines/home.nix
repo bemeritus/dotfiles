@@ -1,31 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
-  mkNixPak = inputs.nixpak.lib.nixpak {
-    inherit (pkgs) lib;
-    inherit pkgs;
-  };
-
-  sandboxed-discord = mkNixPak {
-    config = {sloth, ...}: {
-      # The application to isolate
-      app.package = pkgs.discord-ptb;
-
-      # Configure bubblewrap permissions
-      bubblewrap = {
-        # Allow network access (Discord needs the internet)
-        network = true;
-
-        bind.rw = [
-          (sloth.concat [sloth.homeDir "/Downloads"])
-          (sloth.concat [sloth.homeDir "/.config/discordptb"])
-        ];
-      };
-    };
-  };
-in {
+{pkgs, ...}: {
   imports = [
     ../modules/home/git.nix
     ../modules/home/bash.nix
@@ -83,7 +56,7 @@ in {
     gnome-boxes
     planify
     # zulip
-    sandboxed-discord.config.env
+    discord-ptb
     spotify
     github-desktop
     health

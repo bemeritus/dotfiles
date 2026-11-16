@@ -12,14 +12,7 @@
     ./hardware-configuration.nix
     ./keyboards/default.nix
     ./modules.nix
-    inputs.nix-data.nixosModules.nix-data
   ];
-
-  nixpkgs = {
-    overlays = [
-      inputs.mac-style-plymouth.overlays.default
-    ];
-  };
 
   # Bootloader.
   boot = {
@@ -43,11 +36,7 @@
       };
     };
 
-    plymouth = {
-      enable = true;
-      theme = "mac-style";
-      themePackages = [pkgs.mac-style-plymouth];
-    };
+    plymouth.enable = true;
 
     consoleLogLevel = 3;
     initrd.systemd.enable = true;
@@ -140,13 +129,6 @@
 
   services.flatpak.enable = true;
 
-  programs.nix-data = {
-    enable = true;
-    systemconfig = "/home/bemeritus/dotfiles/machines/configuration.nix";
-    flake = "/home/bemeritus/dotfiles/flake.nix";
-    hostname = "bemeritus"; # your hostname
-  };
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -212,14 +194,7 @@
     gnome-tweaks
     gnome-extension-manager
     ghostty
-    # inputs.xinux-settings.packages.x86_64-linux.xinux-settings
     inputs.my-nautilus.packages.x86_64-linux.default
-
-    # nixpkgs 26.05 removed `nodePackages`; the claude-desktop flake still
-    # expects `nodePackages.asar`, so shim it to the now top-level `asar`.
-    (inputs.claude-desktop.packages.x86_64-linux.claude-desktop.override {
-      nodePackages = {inherit (pkgs) asar;};
-    })
     nautilus-python
     glib
     (python3.withPackages (ps:

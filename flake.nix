@@ -9,35 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mac-style-plymouth = {
-      url = "github:bemeritus/bemeritus-plymouth-theme";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-data = {
-      url = "git+https://git.oss.uzinfocom.uz/xinux/nix-data?ref=main&shallow=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixpak = {
-      url = "github:nixpak/nixpak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    xinux-settings = {
-      url = "git+https://git.oss.uzinfocom.uz/xinux/settings?ref=app-sandbox&shallow=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     my-nautilus = {
       url = "github:yannmasoch/nautilus-my-computer?dir=packaging/nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    claude-desktop = {
-      url = "github:k3d3/claude-desktop-linux-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.flake-utils.follows = "flake-utils";
     };
   };
 
@@ -45,10 +19,6 @@
     self,
     nixpkgs,
     home-manager,
-    xinux-settings,
-    nixpak,
-    mac-style-plymouth,
-    nix-data,
     ...
   }: let
     system = "x86_64-linux";

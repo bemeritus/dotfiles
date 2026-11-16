@@ -15,6 +15,11 @@
       url = "github:yannmasoch/nautilus-my-computer?dir=packaging/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -22,6 +27,7 @@
     flake-parts,
     nixpkgs,
     home-manager,
+    disko,
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -36,6 +42,12 @@
           specialArgs = {inherit inputs;};
           modules = [
             ./machines/configuration.nix
+
+            # Uncomment when reinstalling with the btrfs layout in
+            # ./machines/disko.nix (and drop the fileSystems/swapDevices
+            # from hardware-configuration.nix so they don't conflict).
+            # disko.nixosModules.disko
+            # ./machines/disko.nix
 
             home-manager.nixosModules.home-manager
             {

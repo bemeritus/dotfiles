@@ -33,6 +33,13 @@
     "Xft.dpi" = 172;
   };
 
+  # enable minimize/maximize window buttons (GNOME Tweaks equivalent)
+  dconf.settings = {
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     pfetch

@@ -55,21 +55,16 @@
     zola
     keepassxc
     openssl
-    # poedit
     yt-dlp
-    # obsidian
     vscode
     vivaldi
     gnome-boxes
     planify
-    # zulip
-    discord-ptb
     spotify
     github-desktop
     health
     fragments
     popsicle
-    # masterpdfeditor
     gnome-podcasts
     amberol
     e-imzo-manager

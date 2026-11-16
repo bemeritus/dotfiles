@@ -102,6 +102,16 @@
 
   services.flatpak.enable = true;
 
+  # Automatically register the Flathub remote on boot.
+  systemd.services.flatpak-add-flathub-repo = {
+    wantedBy = ["multi-user.target"];
+    after = ["flatpak-system-helper.service"];
+    path = [pkgs.flatpak];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -176,6 +186,24 @@
     docker
     docker-client
     docker-compose
+
+    # network diagnostics
+    iputils
+    traceroute
+    mtr
+    nmap
+    tcpdump
+    wireshark
+    dnsutils
+    whois
+    netcat
+    iperf3
+    ethtool
+    nethogs
+    iftop
+    bandwhich
+    arp-scan
+
     #git
     #rustup
     #gcc

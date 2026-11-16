@@ -25,14 +25,6 @@
         #splashImage = ./background.png;
         useOSProber = true;
         efiSupport = true;
-        theme = "${
-          (pkgs.fetchFromGitHub {
-            owner = "xinux-org";
-            repo = "bootloader-theme";
-            tag = "v1.0.3";
-            hash = "sha256-ipaiJiQ3r2B3si1pFKdp/qykcpaGV+EqXRwl6UkCohs=";
-          })
-        }/xinux";
       };
     };
 

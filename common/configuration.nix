@@ -1,6 +1,6 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# Shared system configuration imported by every host in ./hosts.
+# Host-specific bits (hostName, bootloader, GPU/kernel params, the
+# hardware scan) live in each host's own default.nix instead.
 {
   config,
   pkgs,
@@ -8,37 +8,17 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./keyboards/default.nix
     ./modules.nix
   ];
 
-  # Bootloader.
-  boot = {
-    loader = {
-      systemd-boot.enable = false;
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        devices = ["nodev"];
-        #splashImage = ./background.png;
-        useOSProber = true;
-        efiSupport = true;
-      };
-    };
+  # Boot bits that are the same on every host. Bootloader and
+  # kernelParams are set per-host (see ./hosts/<name>/default.nix).
+  boot.initrd.systemd.enable = true;
 
-    initrd.systemd.enable = true;
-    kernelParams = [
-      "i915.modeset=1"
-      "boot.shell_on_fail"
-      # "ipv6.disable=1"
-    ];
-  };
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "schedutil";
 
-  networking.hostName = "bemeritus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   #
   # nix.settings.substituters = ["https://cache.nixos.org?priority=10"];

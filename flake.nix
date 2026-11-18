@@ -33,34 +33,39 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      flake = {
+      flake = let
+        # Build a NixOS host from its per-host module directory. Every
+        # host shares ./common/configuration.nix and the same home-manager
+        # setup; only ./hosts/<name> differs (hostName, bootloader, the
+        # hardware scan). Add a new machine with one more line below.
+        mkHost = hostModule:
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {inherit inputs;};
+            modules = [
+              ./common/configuration.nix
+              hostModule
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+
+                  extraSpecialArgs = {inherit inputs;};
+                  users.bemeritus = ./common/home.nix;
+                  backupFileExtension = "backup";
+                };
+              }
+            ];
+          };
+      in {
         homeModules.git = ./modules/home/git.nix;
         homeModules.starship = ./modules/home/starship.nix;
 
-        nixosConfigurations.bemeritus = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./machines/configuration.nix
-
-            # Uncomment when reinstalling with the btrfs layout in
-            # ./machines/disko.nix (and drop the fileSystems/swapDevices
-            # from hardware-configuration.nix so they don't conflict).
-            # disko.nixosModules.disko
-            # ./machines/disko.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-
-                extraSpecialArgs = {inherit inputs;};
-                users.bemeritus = ./machines/home.nix;
-                backupFileExtension = "backup";
-              };
-            }
-          ];
+        nixosConfigurations = {
+          bemeritus = mkHost ./hosts/bemeritus;
+          laptop = mkHost ./hosts/laptop;
         };
       };
 

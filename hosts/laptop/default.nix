@@ -12,12 +12,18 @@
 
   networking.hostName = "laptop";
 
-  # Bootloader. Laptops are usually single-OS EFI, so systemd-boot is
-  # simplest. Switch to the GRUB block from hosts/bemeritus if you dual
-  # boot.
+  # Bootloader. This laptop dual-boots Windows, so use GRUB with
+  # os-prober (same as hosts/bemeritus and the machine's current setup) —
+  # os-prober detects the Windows install and keeps it in the boot menu.
   boot.loader = {
-    systemd-boot.enable = true;
+    systemd-boot.enable = false;
     efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = ["nodev"];
+      efiSupport = true;
+      useOSProber = true;
+    };
   };
 
   # Assumes an Intel GPU like the desktop. If this laptop has AMD, drop

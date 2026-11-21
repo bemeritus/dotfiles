@@ -64,7 +64,7 @@
     github-desktop
     health
     fragments
-    popsicle
+    # popsicle
     gnome-podcasts
     amberol
     e-imzo-manager
